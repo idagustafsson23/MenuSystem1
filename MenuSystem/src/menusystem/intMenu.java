@@ -6,10 +6,15 @@ public class intMenu extends Menu {
 
 	public intMenu(ArrayList<String> alternativs, ArrayList<Altmenu> theClassOfChoise) {
 		super(alternativs);
-		printMenu();
-		int choise = scan.nextInt();
-		choise--;
-		theClassOfChoise.get(choise).makeThis();
+		int choise;
+		do{
+			printMenu();
+			choise = scan.nextInt();
+			choise--;
+			if(choise < alternativs.size()){
+				theClassOfChoise.get(choise).makeThis();
+			}
+		}while(choise < alternativs.size());
 	}
 
 	@Override
